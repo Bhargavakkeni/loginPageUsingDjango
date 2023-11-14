@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import LoginDetails
 # Create your views here.
 
 def index(request):
@@ -9,9 +10,10 @@ def verifyUser(request):
     mydict={}
     username=request.GET['userName']
     password=request.GET['password']
-    verifyname='bhargavakkeni'
-    verifypassword='Bhargav@123'
-
+    verify= LoginDetails.objects.all()[0]
+    verifyname = verify.username
+    verifypassword = verify.password
+    
     if username==verifyname and password==verifypassword:
         mydict={
             'verify':True,
