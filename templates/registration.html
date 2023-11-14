@@ -21,7 +21,7 @@
             width: 50%;
         }
 
-    
+
         input {
             width: 50%;
             display: block;
@@ -49,7 +49,8 @@
         span {
             color: red;
         }
-        p{
+
+        p {
             color: red;
         }
     </style>
@@ -68,16 +69,25 @@
                     <input type="text" name="userName" id="userName" autocomplete="off" autofocus required>
                     <label for="password">Password <span>*</span></label>
                     <input type="password" name="password" id="password" autocomplete="off" required>
-                    <input type="submit" name="submit" id="submit" value="Submit" onclick="alert('Registration successful!\nYou can login now')">
+                    <input type="submit" name="submit" id="submit" value="Submit">
                     <input type="reset" name="reset" id="reset" value="Reset">
                 </form>
             </div>
             <div class="col-3">
-              <p>Already a user? <a href="/loginapp">login</a></p>  
+                <p>Already a user? <a href="/loginapp">login</a></p>
             </div>
             <div class="col-4">
-                {% if exist %}
-                <p>User already exist. Please login.</p>
+                {% if error %}
+                <p>User Already exist</p>
+                <script>
+                    alert('User Already exist')
+                </script>
+                {% endif %}
+                {% if verify %}
+                <p>Registration successful</p>
+                <script>
+                    alert('Registration successful')
+                </script>
                 {% endif %}
             </div>
         </div>

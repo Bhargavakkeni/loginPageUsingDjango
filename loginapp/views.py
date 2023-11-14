@@ -14,9 +14,14 @@ def verifyUser(request):
     mydict={}
     username=request.GET['userName']
     password=request.GET['password']
-    verify= LoginDetails.objects.all()[0]
-    verifyname = verify.username
-    verifypassword = verify.password
+    verifyname,verifypassword='',''
+    #verify= LoginDetails.objects.get(username=username)
+    details=LoginDetails.objects.all().values()
+    #print(details,username)
+    for x in details:
+        if username == x['username']:
+            verifyname = x['username']
+            verifypassword = x['password']
     
     if username==verifyname and password==verifypassword:
         mydict={
@@ -37,9 +42,21 @@ def registration(request):
 def uploading(request):
     username=request.GET['userName']
     password=request.GET['password']
-    vobj=LoginDetails.objects.filter(username=username).values()
     mydict={}
+    details=LoginDetails.objects.all().values()
+    #print(details,username)
+    mydict={
+        'verify':False,
+        'error':False
+    }
+    for x in details:
+        if username == x['username']:
+            mydict['error']=True
+            
+    if(mydict['error']==False):
+        mydict['verify']=True
     myobj = LoginDetails(username=username, password=password)
     myobj.save()
+    
     template=loader.get_template('registration.html')
     return HttpResponse(template.render(mydict,request))
