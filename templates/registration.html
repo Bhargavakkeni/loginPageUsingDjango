@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>Registration Page</title>
     <style>
         label {
             display: block;
@@ -60,30 +60,24 @@
     <div class="container">
         <div class="row">
             <div class="col-1">
-                <h1>User Login</h1>
+                <h1>User Registration</h1>
             </div>
             <div class="col-2">
-                <form action="{% url 'verifyUser' %}" method="GET">
+                <form action="/uploading" method="GET">
                     <label for="userName">User Name <span>*</span></label>
                     <input type="text" name="userName" id="userName" autocomplete="off" autofocus required>
                     <label for="password">Password <span>*</span></label>
                     <input type="password" name="password" id="password" autocomplete="off" required>
-                    <input type="submit" name="submit" id="submit" value="Submit">
+                    <input type="submit" name="submit" id="submit" value="Submit" onclick="alert('Registration successful!\nYou can login now')">
                     <input type="reset" name="reset" id="reset" value="Reset">
                 </form>
             </div>
             <div class="col-3">
-                {% if verify %}
-                <p>Welcome {{name}}</p>
-                <script>
-                    alert('Welcome {{name}}!')
-                </script>
-                {% endif %}
-                {% if error %}
-                <p> Please try again</p>
-                <script>
-                    alert('Please try again')
-                </script>
+              <p>Already a user? <a href="/loginapp">login</a></p>  
+            </div>
+            <div class="col-4">
+                {% if exist %}
+                <p>User already exist. Please login.</p>
                 {% endif %}
             </div>
         </div>

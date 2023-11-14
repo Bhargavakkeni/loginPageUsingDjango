@@ -1,12 +1,16 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import LoginDetails
+from django.template import loader
 # Create your views here.
-
+def root(request):
+    return HttpResponse('Server has started')
 def index(request):
-    return render(request,'index.html')
+    template = loader.get_template('index.html')
+    return HttpResponse(template.render())
 
 def verifyUser(request):
+    
     mydict={}
     username=request.GET['userName']
     password=request.GET['password']
@@ -23,5 +27,19 @@ def verifyUser(request):
         
     else:
         mydict['error']=True
+    template = loader.get_template('index.html')
+    return HttpResponse(template.render(mydict,request))
 
-    return render(request,'index.html',context=mydict)
+def registration(request):
+    template = loader.get_template('registration.html')
+    return HttpResponse(template.render())
+
+def uploading(request):
+    username=request.GET['userName']
+    password=request.GET['password']
+    vobj=LoginDetails.objects.filter(username=username).values()
+    mydict={}
+    myobj = LoginDetails(username=username, password=password)
+    myobj.save()
+    template=loader.get_template('registration.html')
+    return HttpResponse(template.render(mydict,request))

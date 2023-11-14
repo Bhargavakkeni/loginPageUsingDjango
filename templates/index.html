@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        label {
+            display: block;
+            padding: 10px;
+        }
+
+        div.container {
+            margin: auto;
+            width: 100%;
+        }
+
+        div.row {
+            margin: auto;
+            width: 50%;
+        }
+
+    
+        input {
+            width: 50%;
+            display: block;
+            padding: 6px;
+            margin: 0px 11px;
+        }
+
+        #submit,
+        #reset {
+            color: white;
+            background-color: black;
+            margin: 18px;
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        body {
+            background-color: aliceblue;
+        }
+
+        h1 {
+            color: navy;
+        }
+
+        span {
+            color: red;
+        }
+        p{
+            color: red;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-1">
+                <h1>User Login</h1>
+            </div>
+            <div class="col-2">
+                <form action="/verifyUser" method="GET">
+                    <label for="userName">User Name <span>*</span></label>
+                    <input type="text" name="userName" id="userName" autocomplete="off" autofocus required>
+                    <label for="password">Password <span>*</span></label>
+                    <input type="password" name="password" id="password" autocomplete="off" required>
+                    <input type="submit" name="submit" id="submit" value="Submit">
+                    <input type="reset" name="reset" id="reset" value="Reset">
+                </form>
+            </div>
+            <div class="col-3">
+                {% if verify %}
+                <p>Welcome {{name}}</p>
+                <script>
+                    alert('Welcome {{name}}!')
+                </script>
+                {% endif %}
+                {% if error %}
+                <p> Please try again</p>
+                <script>
+                    alert('Please try again')
+                </script>
+                {% endif %}
+            </div>
+            <div class="col-4">
+                <p>New user? <a href="/registration">Register here</a> </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
