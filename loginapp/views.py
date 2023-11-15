@@ -60,3 +60,7 @@ def uploading(request):
     
     template=loader.get_template('registration.html')
     return HttpResponse(template.render(mydict,request))
+
+def omsadmin(request):
+    template=loader.get_template('OmsAdmin1.html')
+    return HttpResponse(template.render())

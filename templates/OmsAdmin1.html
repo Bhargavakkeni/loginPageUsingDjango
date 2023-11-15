@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OMS Admin1</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            border: 1px solid black;
+            margin: auto;
+            width: 70%;
+            /*controling the size of the table*/
+        }
+
+        th,
+        td {
+            /* text-align: left;*/
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        th {
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            /*background-color: rgba(150, 212, 212, 0.4);*/
+            background-color: floralwhite;
+        }
+
+        /*th:nth-child(even),*/
+        tr:nth-child(odd) {
+            /* background-color: rgba(150, 212, 212, 0.4);*/
+            background-color: snow;
+        }
+
+        td label {
+            display: block;
+            text-align: right;
+
+        }
+
+        div.col {
+            margin: 12px auto;
+        }
+
+        td label {
+            text-align: right;
+        }
+
+        input {
+            padding: 5px;
+        }
+
+        input[type="date"] {
+            width: 162px;
+        }
+
+        input[type="button"] {
+            width: 177px;
+        }
+
+        div.row {
+            margin: 71px auto;
+        }
+
+        * {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        body {
+            background-color: seashell;
+        }
+
+        div.container{
+            overflow: auto;
+            margin:auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <table style="border: none;">
+                    <tr>
+                        <th style="border: none;"> OMS Admin</th>
+                    </tr>
+                </table>
+            </div>
+            <div class="col">
+                <table>
+                    <tr>
+                        <td>
+                            <label for="brand">Brand</label>
+                        </td>
+                        <td>
+                            <input type="text" id="brand" name="brand">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="shipMethod">Ship Method</label>
+                        </td>
+                        <td>
+                            <input type="text" id="shipMethod" name="shipMethod">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="processingDays">Processing Days</label>
+                        </td>
+                        <td>
+                            <input type="text" id="processingDays" name="processingDays">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="processingDaysType">Processing Days Type</label>
+                        </td>
+                        <td>
+                            <input type="number" id="processingDaysType" name="processingDaysType">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="Min">Min</label>
+                        </td>
+                        <td>
+                            <input type="number" id="Min" name="Min">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="Max">Max</label>
+                        </td>
+                        <td>
+                            <input type="number" id="Max" name="Max">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="processingDate">Processing Date</label>
+                        </td>
+                        <td>
+                            <input type="date" id="processingDate" name="processingDate">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="availableToPromiseDate">Available To Promise Date</label>
+                        </td>
+                        <td>
+                            <input type="date" id="availableToPromiseDate" name="availableToPromiseDate">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="CutOff">CutOff</label>
+                        </td>
+                        <td>
+                            <input type="text" id="CutOff" name="CutOff">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">
+                            <input type="button" id="show" name="show" value="SHOW">
+                        </td>
+                        <td>
+                            <input type="button" id="UPDATE" name="update" value="UPDATE">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
