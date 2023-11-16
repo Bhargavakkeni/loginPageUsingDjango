@@ -70,7 +70,7 @@
 
             <!--To send the user login details for verification-->
             <div class="col-2">
-                <form action="/verifyUser" method="GET">
+                <form action="verifyUser" method="GET"> <!--using 'verifyUser' instead '/verifyUser makes the path till now directly append to it instead from project urls.py-->
                     <label for="userName">User Name <span>*</span></label>
                     <input type="text" name="userName" id="userName" autocomplete="off" autofocus required>
                     <label for="password">Password <span>*</span></label>
@@ -87,7 +87,8 @@
                 <p>Welcome {{name}}</p>
                 <script>
                     alert('Welcome {{name}}!');
-                    window.open('loginpage/omsadmin', '_self');     //opens a new page which is dummy template if login successful
+                    window.open('../omsadmin', '_self');     //opens a new page which is dummy template if login successful
+                    //'../' indicates go back to one url we skips loginpage url
                 </script>
                 {% endif %}
                 {% if error %}
@@ -100,7 +101,7 @@
 
             <!--Redirects the user to registration page-->
             <div class="col-4">
-                <p>New user? <a href="/registration">Register here</a> </p>
+                <p>New user? <a href="../registration">Register here</a> </p>
             </div>
 
         </div>

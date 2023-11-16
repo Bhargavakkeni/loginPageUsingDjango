@@ -84,7 +84,7 @@
 
             <!--to send the user details for entering the data into model-->
             <div class="col-2">
-                <form id="registerForm" action="/uploading" method="GET" autocomplete="on"
+                <form id="registerForm" action="uploading" method="GET" autocomplete="on"
                     onsubmit="return verifyPass()">
                     <label for="userName">User Name <span>*</span></label>
                     <input type="text" name="userName" id="userName" autofocus required>
@@ -100,7 +100,7 @@
 
             <!--redirects the user to login page-->
             <div class="col-3">
-                <p>Already a user? <a href="/loginpage">login</a></p>
+                <p>Already a user? <a href="loginpage">login</a></p>
             </div>
 
             <!--redirects the user to login page if registered successfuly-->
@@ -115,7 +115,7 @@
                 <p>Registration successful</p>
                 <script>
                     alert('Registration successful');
-                    window.open("/loginpage", "_self");
+                    window.open("loginpage", "_self");
                 </script>
                 {% endif %}
             </div>
