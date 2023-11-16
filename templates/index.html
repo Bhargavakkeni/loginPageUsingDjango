@@ -59,11 +59,16 @@
 </head>
 
 <body>
+
     <div class="container">
+
         <div class="row">
+
             <div class="col-1">
                 <h1>User Login</h1>
             </div>
+
+            <!--To send the user login details for verification-->
             <div class="col-2">
                 <form action="/verifyUser" method="GET">
                     <label for="userName">User Name <span>*</span></label>
@@ -74,12 +79,15 @@
                     <input type="reset" name="reset" id="reset" value="Reset">
                 </form>
             </div>
+
+
+            <!--if verified loads the new page else notifies the user to try again-->
             <div class="col-3">
                 {% if verify %}
                 <p>Welcome {{name}}</p>
                 <script>
                     alert('Welcome {{name}}!');
-                    window.open('loginpage/omsadmin', '_self');
+                    window.open('loginpage/omsadmin', '_self');     //opens a new page which is dummy template if login successful
                 </script>
                 {% endif %}
                 {% if error %}
@@ -89,11 +97,16 @@
                 </script>
                 {% endif %}
             </div>
+
+            <!--Redirects the user to registration page-->
             <div class="col-4">
                 <p>New user? <a href="/registration">Register here</a> </p>
             </div>
+
         </div>
+
     </div>
+
 </body>
 
 </html>

@@ -56,6 +56,7 @@
         }
     </style>
 
+    <!--script to verify password-->
     <script>
         function verifyPass() {
             console.log('function call');
@@ -72,11 +73,16 @@
 </head>
 
 <body>
+
     <div class="container">
+
         <div class="row">
+
             <div class="col-1">
                 <h1>User Registration</h1>
             </div>
+
+            <!--to send the user details for entering the data into model-->
             <div class="col-2">
                 <form id="registerForm" action="/uploading" method="GET" autocomplete="on"
                     onsubmit="return verifyPass()">
@@ -92,9 +98,12 @@
                 </form>
             </div>
 
+            <!--redirects the user to login page-->
             <div class="col-3">
                 <p>Already a user? <a href="/loginpage">login</a></p>
             </div>
+
+            <!--redirects the user to login page if registered successfuly-->
             <div class="col-4">
                 {% if error %}
                 <p>User Already exist</p>
@@ -110,8 +119,11 @@
                 </script>
                 {% endif %}
             </div>
+
         </div>
+
     </div>
+
 </body>
 
 </html>

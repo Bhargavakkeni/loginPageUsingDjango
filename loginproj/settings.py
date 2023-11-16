@@ -48,7 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',                   #for working with static files
 ]
 
 ROOT_URLCONF = 'loginproj.urls'
@@ -56,7 +56,7 @@ ROOT_URLCONF = 'loginproj.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'./templates')],
+        'DIRS': [os.path.join(BASE_DIR,'templates')],                #path to store templates
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -117,11 +117,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_ROOT=BASE_DIR/'productionfiles'
+STATIC_ROOT=BASE_DIR/'productionfiles'              #to store the static files when collectstatic command is executed
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS=[
-    os.path.join(BASE_DIR,'static'),
+    os.path.join(BASE_DIR,'static'),                #path to store global static directories
 ]
 
 # Default primary key field type
