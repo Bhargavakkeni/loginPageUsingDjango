@@ -3,33 +3,35 @@ from django.http import HttpResponse
 from .models import LoginDetails
 from django.template import loader
 # Create your views here.
+
 def root(request):
     return HttpResponse('Server has started')
+
 def index(request):
     template = loader.get_template('index.html')
     return HttpResponse(template.render())
 
 def verifyUser(request):
-    
     mydict={}
     username=request.GET['userName']
     password=request.GET['password']
-    verifyname,verifypassword='',''
-    #verify= LoginDetails.objects.get(username=username)
-    details=LoginDetails.objects.all().values()
+    print(type(username))
+    username=username.strip()
+    print(username,len(username))
+    #verifyname,verifypassword='',''
+    verify= LoginDetails.objects.filter(username=username,password=password).values()
+    #details=LoginDetails.objects.all().values()
     #print(details,username)
-    for x in details:
+    for x in verify:
         if username == x['username']:
             verifyname = x['username']
             verifypassword = x['password']
-    
     if username==verifyname and password==verifypassword:
         mydict={
             'verify':True,
             'error':False,
             'name':username
         }
-        
     else:
         mydict['error']=True
     template = loader.get_template('index.html')
@@ -42,8 +44,9 @@ def registration(request):
 def uploading(request):
     username=request.GET['userName']
     password=request.GET['password']
+    username=username.strip()
     mydict={}
-    details=LoginDetails.objects.all().values()
+    details=LoginDetails.objects.filter(username=username).values()
     #print(details,username)
     mydict={
         'verify':False,
@@ -52,12 +55,10 @@ def uploading(request):
     for x in details:
         if username == x['username']:
             mydict['error']=True
-            
     if(mydict['error']==False):
         mydict['verify']=True
-    myobj = LoginDetails(username=username, password=password)
-    myobj.save()
-    
+        myobj = LoginDetails(username=username, password=password)
+        myobj.save()
     template=loader.get_template('registration.html')
     return HttpResponse(template.render(mydict,request))
 

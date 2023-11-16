@@ -21,7 +21,7 @@
             width: 50%;
         }
 
-    
+
         input {
             width: 50%;
             display: block;
@@ -49,8 +49,10 @@
         span {
             color: red;
         }
-        p{
+
+        p {
             color: red;
+            font-size: large;
         }
     </style>
 
@@ -77,11 +79,11 @@
                 <p>Welcome {{name}}</p>
                 <script>
                     alert('Welcome {{name}}!');
-                    window.open('loginpage/omsadmin','_self');
+                    window.open('loginpage/omsadmin', '_self');
                 </script>
                 {% endif %}
                 {% if error %}
-                <p> Please try again</p>
+                <!--<p> Please try again</p>-->
                 <script>
                     alert('Please try again');
                 </script>
