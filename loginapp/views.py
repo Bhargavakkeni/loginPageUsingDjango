@@ -18,7 +18,7 @@ def verifyUser(request):
     print(type(username))
     username=username.strip()
     print(username,len(username))
-    #verifyname,verifypassword='',''
+    verifyname,verifypassword='',''
     verify= LoginDetails.objects.filter(username=username,password=password).values()
     #details=LoginDetails.objects.all().values()
     #print(details,username)
